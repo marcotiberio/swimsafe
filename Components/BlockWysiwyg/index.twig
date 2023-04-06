@@ -1,0 +1,5 @@
+<flynt-component load:on="visible" name="BlockWysiwyg" class="">
+  <div class="max-w-screen-lg mx-auto p-lg">
+    {{ contentHtml|e('wp_kses_post') }}
+  </div>
+</flynt-component>
