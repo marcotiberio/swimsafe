@@ -4,6 +4,8 @@ import './scripts/custom'
 import Alpine from 'alpinejs'
 import intersect from '@alpinejs/intersect'
 import FlyntComponent from './scripts/FlyntComponent'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 import 'lazysizes'
 
 if (import.meta.env.DEV) {
@@ -18,6 +20,8 @@ window.customElements.define(
 window.Alpine = Alpine
 Alpine.start()
 Alpine.plugin(intersect)
+
+gsap.registerPlugin(ScrollTrigger)
 
 import.meta.glob([
   '../Components/**',

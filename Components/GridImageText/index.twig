@@ -1,29 +1,19 @@
-<flynt-component load:on="visible" name="GridImageText" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
-  <div class="wrapper centerMaxWidthContainer">
+<flynt-component load:on="visible" name="GridImageText">
+  <div class="wrapper max-w-screen-xl mx-auto p-sm sm:p-md md:p-lg">
     {% if preContentHtml %}
-      <div class="preContent">
+      <div class="">
         {{ preContentHtml|e('wp_kses_post') }}
       </div>
     {% endif %}
-    <ul class="grid" {{ options.maxColumns ? 'data-max-columns="' ~ options.maxColumns ~ '"' }}>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-md sm:gap-md max-w-screen-lg mx-auto mt-xl">
       {% for item in items %}
         {% if item.image or item.contentHtml %}
-          <li class="item {{ options.card == 'layoutCard' ? 'boxBorder' }}" {{ options.card == 'layoutCard' ? 'data-theme="reset"' }}>
+          <div class="">
               {% if item.image %}
-                <figure class="figure">
-                  <img class="figure-image lazyload"
-                    src="{{ item.image.src|resizeDynamic(768, (768 / 3 * 2)|round, 'center') }}"
-                    width="{{ 768 }}"
-                    height="{{ (768 / 3 * 2)|round }}"
-                    srcset="{{ placeholderImage(768, (768 / 3 * 2)|round, 'rgba(125, 125, 125, 0.1)') }}"
-                    data-srcset="
-                      {{ item.image.src|resizeDynamic(1920, (1920 / 3 * 2)|round, 'center') }} 1920w,
-                      {{ item.image.src|resizeDynamic(1600, (1600 / 3 * 2)|round, 'center') }} 1600w,
-                      {{ item.image.src|resizeDynamic(1440, (1440 / 3 * 2)|round, 'center') }} 1440w,
-                      {{ item.image.src|resizeDynamic(1366, (1366 / 3 * 2)|round, 'center') }} 1366w,
-                      {{ item.image.src|resizeDynamic(1024, (1024 / 3 * 2)|round, 'center') }} 1024w,
-                      {{ item.image.src|resizeDynamic(768, (768 / 3 * 2)|round, 'center') }} 768w,
-                      {{ item.image.src|resizeDynamic(640, (640 / 3 * 2)|round, 'center') }} 640w"
+                <figure class="figure mb-sm">
+                  <img class="lazyload w-full object-cover aspect-4/3"
+                    src="{{ item.image.src | resize(32) }}"
+                    data-srcset="{{function('wp_get_attachment_image_srcset', item.image.id)}}"
                     data-sizes="auto"
                     alt="{{ item.image.alt|e }}">
                 </figure>
@@ -33,9 +23,9 @@
                   {{ item.contentHtml|e('wp_kses_post') }}
                 </div>
               {% endif %}
-          </li>
+          </div>
         {% endif %}
       {% endfor %}
-    </ul>
+    </div>
   </div>
 </flynt-component>

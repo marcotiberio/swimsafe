@@ -1,9 +1,9 @@
-// flynt-component[name='BlockImageText'] {
-//   [data-image-position='right'] {
-//     @apply flex-row-reverse;
-//   }
+flynt-component[name='BlockImageText'] {
+  [data-image-position='right'] {
+    @apply sm:flex-row-reverse;
+  }
 
-//   [data-image-position='left'] {
-//     @apply flex-row;
-//   }
-// }
+  [data-image-position='left'] {
+    @apply sm:flex-row;
+  }
+}

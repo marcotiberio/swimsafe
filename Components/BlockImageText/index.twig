@@ -1,36 +1,36 @@
 <flynt-component load:on="visible" name="BlockImageText">
-  <div class="wrapper boxed lg:flex lg:align-start lg:justify-between lg:gap-[100px]" {{ imagePosition ? 'data-image-position="' ~ imagePosition ~ '"' }}>
-    <div class="lg:w-1/2">
-      {% if image.post_mime_type == 'image/svg+xml'%}
-        <img class="image lazyload"
-          src="{{ placeholderImage(768, (768 / image.aspect)|round, 'rgba(125, 125, 125, 0.1)') }}"
-          width="{{ 768 }}"
-          height="{{ (768 / image.aspect)|round }}"
-          data-src="{{ image.src }}"
-          alt="{{ image.alt|e }}">
-      {% else %}
-        <img class="figure-image lazyload"
-          src="{{ image.src|resizeDynamic(768) }}"
-          width="{{ 768 }}"
-          height="{{ (768 / image.aspect)|round }}"
-          srcset="{{ placeholderImage(768, (768 / image.aspect)|round, 'rgba(125, 125, 125, 0.1)') }}"
-          data-srcset="
-            {{ image.src|resizeDynamic(1920) }} 1920w,
-            {{ image.src|resizeDynamic(1600) }} 1600w,
-            {{ image.src|resizeDynamic(1440) }} 1440w,
-            {{ image.src|resizeDynamic(1366) }} 1366w,
-            {{ image.src|resizeDynamic(1024) }} 1024w,
-            {{ image.src|resizeDynamic(768) }} 768w,
-            {{ image.src|resizeDynamic(640) }} 640w"
-          data-sizes="auto"
-          alt="{{ image.alt|e }}">
-      {% endif %}
-      {% if image.caption %}
-        <figcaption>{{ image.caption|e }}</figcaption>
-      {% endif %}
-    </div>
-    <div class="lg:w-1/2">
-      {{ contentHtml|e('wp_kses_post') }}
+  <div class="wrapper max-w-screen-xl mx-auto p-sm sm:p-md md:p-lg">
+    {% if preContentTitle %}
+      <div class="w-full flex justify-between items-center mb-md md:mb-lg">
+        <h2>{{ preContentTitle }}</h2>
+        <a href="{{ labels.allPostsLink.url }}" class="button--link underline hover:no-underline caption font-bold text-body">{{ labels.allPosts }}</a>
+      </div>
+    {% endif %}
+    <div class="flex flex-col sm:flex-row align-start md:items-center justify-start md:justify-between gap-md lg:gap-xxl" {{ imagePosition ? 'data-image-position="' ~ imagePosition ~ '"' }}>
+      <div class="sm:w-1/3">
+        {% if image %}
+          <img class="lazyload w-full object-cover aspect-3/4"
+            src="{{ image.src | resize(32) }}"
+            data-srcset="{{function('wp_get_attachment_image_srcset', image.id)}}"
+            data-sizes="auto"
+            alt="{{ image.alt|e }}">
+        {% endif %}
+        {% if image.caption %}
+          <figcaption>{{ image.caption|e }}</figcaption>
+        {% endif %}
+      </div>
+      <div class="sm:w-2/3">
+        {{ contentHtml|e('wp_kses_post') }}
+        {% if buttonLink %}
+          <div class="w-full mt-sm flex justify-center">
+            <a 
+              class="button button--plusBlack" 
+              href="{{ buttonLink.url }}" 
+              {% if buttonLink.target %} target="{{ buttonLink.target }}" rel="noreferrer noopener"{% endif %}>
+            </a>
+          </div>
+        {% endif %}
+      </div>
     </div>
   </div>
 </flynt-component>

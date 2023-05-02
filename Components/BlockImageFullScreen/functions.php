@@ -6,20 +6,11 @@ use Flynt\Utils\Asset;
 use Flynt\Utils\Options;
 use Timber\Timber;
 
-add_filter('Flynt/addComponentData?name=BlockImageFullScreen', function ($data) {
-    $data['logo'] = [
-        'src' => get_theme_mod('custom_header_logo') ? get_theme_mod('custom_header_logo') : Asset::requireUrl('assets/images/logo.svg'),
-        'alt' => get_bloginfo('name')
-    ];
-
-    return $data;
-});
-
 function getACFLayout()
 {
     return [
         'name' => 'BlockImageFullScreen',
-        'label' => __('Block: Image Full Screen', 'flynt'),
+        'label' => __('Banner Image', 'flynt'),
         'sub_fields' => [
             [
                 'label' => __('General', 'flynt'),
@@ -38,32 +29,21 @@ function getACFLayout()
                 'mime_types' => 'jpg,jpeg,png,svg'
             ],
             [
-                'label' => __('Options', 'flynt'),
-                'name' => 'optionsTab',
-                'type' => 'tab',
-                'placement' => 'top',
-                'endpoint' => 0
+                'label' => __('Title', 'flynt'),
+                'name' => 'contentTitle',
+                'type' => 'text',
             ],
             [
-                'label' => '',
-                'name' => 'options',
-                'type' => 'group',
-                'layout' => 'row',
-                'sub_fields' => [
-                    [
-                        'label' => __('Show Logo', 'flynt'),
-                        'name' => 'showLogo',
-                        'type' => 'true_false',
-                        'default_value' => 1,
-                        'ui' => 1,
-                        'ui_on_text' => __('Yes', 'flynt'),
-                        'ui_off_text' => __('No', 'flynt'),
-                        'wrapper' => [
-                            'width' => 100
-                        ]
-                    ],
+                'label' => __('Title Position', 'flynt'),
+                'name' => 'titlePosition',
+                'type' => 'button_group',
+                'choices' => [
+                    'topLeft' => sprintf('<p>TOP LEFT</p>', __('Top-Left', 'flynt')),
+                    'topRight' => sprintf('<p>TOP RIGHT</p>', __('Top-Right', 'flynt')),
+                    'bottomLeft' => sprintf('<p>BOTTOM LEFT</p>', __('Bottom-Left', 'flynt')),
+                    'bottomRight' => sprintf('<p>BOTTOM RIGHT</p>', __('Bottom-Right', 'flynt'))
                 ]
-            ]
+            ],
         ]
     ];
 }

@@ -40,3 +40,27 @@ function getRawSvg()
         'new_lines' => '',
     ];
 }
+
+function getColorBackground()
+{
+    return [
+        'label' => __('Color Background', 'flynt'),
+        'name' => 'colorBackground',
+        'type' => 'color_picker',
+        'wrapper' => [
+            'width' => 100,
+        ],
+    ];
+}
+
+function getColorText()
+{
+    return [
+        'label' => __('Color Text', 'flynt'),
+        'name' => 'colorText',
+        'type' => 'color_picker',
+        'wrapper' => [
+            'width' => 100,
+        ],
+    ];
+}

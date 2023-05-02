@@ -1,9 +1,0 @@
-<flynt-component load:on="idle" name="NavigationMainRight" class="block relative">
-  <nav class="navigation w-[45vw] sm:w-[33.3vw] lg:w-[16.7vw] p-sm z-[99]" aria-label="{{ labels.ariaLabel|e }}">
-    <div class="flex flex-col align-middle justify-center gap-sm h-full">
-      {% if menu %}
-        {% include 'Partials/_menu.twig' with { 'items': menu.items } only %}
-      {% endif %}
-    </div>
-  </nav>
-</flynt-component>

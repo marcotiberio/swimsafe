@@ -42,6 +42,11 @@ add_filter('tiny_mce_before_init', function ($init) {
             // Send it to style_formats as true js array
             $init['style_formats'] = json_encode($config['styleformats']);
         }
+
+        if (isset($config['textcolor_map'])) {
+            // Send it to textcolor_map as true js array
+            $init['textcolor_map'] = json_encode($config['textcolor_map']);
+        }
     }
     return $init;
 });
@@ -76,20 +81,35 @@ function getBlockFormats($blockFormats)
 function getConfig()
 {
     return [
+        'textcolor_map' => [
+            '000', 'Black',
+            'fff', 'White',
+            '263978', 'Blue',
+            '51bad9', 'Acqua',
+            'd9d9d9', 'Grey',
+            'azulgrey', 'Azulgrey',
+        ],
         'blockformats' => [
             'Paragraph' => 'p',
             'Heading 1' => 'h1',
             'Heading 2' => 'h2',
-            'Heading 3' => 'h3',
-            'Heading 4' => 'h4',
-            'Heading 5' => 'h5',
-            'Heading 6' => 'h6'
+            'Heading 3' => 'h3'
         ],
         'styleformats' => [
             [
                 'title' => 'Headings',
                 'icon' => '',
                 'items' => [
+                    [
+                        'title' => 'Super Title',
+                        'classes' => 'superTitle',
+                        'selector' => '*'
+                    ],
+                    [
+                        'title' => 'Super Subtitle',
+                        'classes' => 'superSubtitle',
+                        'selector' => '*'
+                    ],
                     [
                         'title' => 'Heading 1',
                         'classes' => 'h1',
@@ -103,21 +123,6 @@ function getConfig()
                     [
                         'title' => 'Heading 3',
                         'classes' => 'h3',
-                        'selector' => '*'
-                    ],
-                    [
-                        'title' => 'Heading 4',
-                        'classes' => 'h4',
-                        'selector' => '*'
-                    ],
-                    [
-                        'title' => 'Heading 5',
-                        'classes' => 'h5',
-                        'selector' => '*'
-                    ],
-                    [
-                        'title' => 'Heading 6',
-                        'classes' => 'h6',
                         'selector' => '*'
                     ],
                 ]
@@ -163,11 +168,14 @@ function getConfig()
                     'bold',
                     'italic',
                     'blockquote',
+                    'forecolor',
                     '|',
                     'alignleft',
                     'aligncenter',
                     'alignright',
                     'alignjustify',
+                    '|',
+                    'hr',
                     '|',
                     'bullist',
                     'numlist',
@@ -185,11 +193,14 @@ function getConfig()
                     'bold',
                     'italic',
                     'blockquote',
+                    'forecolor',
                     '|',
                     'alignleft',
                     'aligncenter',
                     'alignright',
                     'alignjustify',
+                    '|',
+                    'hr',
                     '|',
                     'bullist',
                     'numlist',

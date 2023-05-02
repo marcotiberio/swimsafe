@@ -15,12 +15,20 @@ add_action('Flynt/afterRegisterComponents', function () {
                 'type' => 'flexible_content',
                 'button_label' => __('Add Component', 'flynt'),
                 'layouts' => [
-                    Components\ArchiveArtists\getACFLayout(),
-                    Components\BlockFixedPage\getACFLayout(),
+                    Components\AccordionSystems\getACFLayout(),
+                    Components\BlockAbout\getACFLayout(),
+                    Components\BlockCta\getACFLayout(),
+                    Components\BlockImage\getACFLayout(),
                     Components\BlockImageFullScreen\getACFLayout(),
-                    Components\BlockNewsItem\getACFLayout(),
-                    Components\BlockPostArchive\getACFLayout(),
-                    Components\BlockPress\getACFLayout(),
+                    Components\BlockImageText\getACFLayout(),
+                    Components\BlockWysiwyg\getACFLayout(),
+                    Components\GridImageText\getACFLayout(),
+                    Components\GridFeatCovers\getACFLayout(),
+                    Components\HeroContactForm\getACFLayout(),
+                    Components\ListingCovers\getACFLayout(),
+                    Components\ScrolltriggerComparison\getACFLayout(),
+                    Components\SliderFeatProjects\getACFLayout(),
+                    Components\SliderLogos\getACFLayout(),
                 ],
             ],
         ],
@@ -34,22 +42,7 @@ add_action('Flynt/afterRegisterComponents', function () {
                 [
                     'param' => 'post_type',
                     'operator' => '!=',
-                    'value' => 'event'
-                ],
-                [
-                    'param' => 'post_type',
-                    'operator' => '!=',
-                    'value' => 'artist'
-                ],
-                [
-                    'param' => 'post_type',
-                    'operator' => '!=',
-                    'value' => 'interview'
-                ],
-                [
-                    'param' => 'post_type',
-                    'operator' => '!=',
-                    'value' => 'release'
+                    'value' => 'pilot'
                 ],
                 [
                     'param' => 'post_type',

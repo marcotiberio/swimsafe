@@ -1,14 +1,12 @@
 flynt-component[name='NavigationBurger'] {
-  --navigation-height: 64px;
+  --navigation-height: 66px;
   height: var(--navigation-height);
 
-  @media (min-width: $breakpoint-tablet) {
-    display: none;
-  }
+  @apply lg:hidden;
 
   .wrapper {
     align-items: center;
-    background-color: var(--white);
+    background-color: var(--blue);
     display: flex;
     height: var(--navigation-height);
     inset-block-start: 0;
@@ -28,7 +26,11 @@ flynt-component[name='NavigationBurger'] {
     }
   }
 
-  @import 'Partials/logo';
+  .button {
+    font-size: 1rem;
+    padding: 5px 10px;
+  }
+
   @import 'Partials/hamburger';
   @import 'Partials/menu';
 }

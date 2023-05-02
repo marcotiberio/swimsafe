@@ -6,7 +6,7 @@
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }} {{ __('Feed', 'flynt') }}" href="{{ site.rss2 | e('esc_url') }}">
     {{ function('wp_head') }}
   </head>
-  <body>
+  <body class="bg-grey">
     <a href="#mainContent" class="skipLink">
       {{ __("Skip to main content", "flynt") }}
     </a>
@@ -14,14 +14,16 @@
       <div class="pageWrapper">
         <header>
           {% block header %}
-            <div class="mainHeader fixed top-0 left-0 w-screen z-50 flex flex-row justify-between">
+            <div class="hidden lg:flex mainHeader fixed top-0 left-0 w-screen z-50 flex-row justify-between bg-blue">
               {{ renderComponent('NavigationMain') }}
-              {{ renderComponent('NavigationMainRight') }}
+              <a class="logo lg:fixed" href="{{ site.link }}">
+                <img class="logo-image" width="156" height="46" src="/wp-content/uploads/2023/04/Logo.png" alt="Logo">
+              </a>
             </div>
-            {# {{ renderComponent('NavigationBurger') }} #}
+            {{ renderComponent('NavigationBurger') }}
           {% endblock %}
         </header>
-        <main id="mainContent" class="mainContent squares" aria-label="{{ __('Content', 'flynt') }}">
+        <main id="mainContent" class="mainContent squares bg-grey" aria-label="{{ __('Content', 'flynt') }}">
           {% if function('post_password_required') %}
             {{ function('get_the_password_form') }}
           {% else %}
@@ -30,10 +32,10 @@
             {% endblock %}
           {% endif %}
         </main>
-        <footer class="mainFooter">
-          {# {% block footer %}
+        <footer class="mainFooter mt-[120px]">
+          {% block footer %}
             {{ renderComponent('NavigationFooter') }}
-          {% endblock %} #}
+          {% endblock %}
         </footer>
       </div>
     {% endblock %}

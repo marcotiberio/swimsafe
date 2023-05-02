@@ -11,9 +11,7 @@ function post_default_components($value, $post_id, $field)
     // add default layouts
     $value = array(
         array(
-            'acf_fc_layout' => 'BlockGallery',
-            'acf_fc_layout' => 'AccordionDefault',
-            'acf_fc_layout' => 'BlockDownloads',
+            'acf_fc_layout' => 'BlockProductSpecs'
         ),
     );
     return $value;

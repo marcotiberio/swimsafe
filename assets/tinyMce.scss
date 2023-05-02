@@ -24,3 +24,27 @@ html {
     margin-block-start: 0;
   }
 }
+
+.mce-content-body {
+  background-color: #cdcdcd;
+
+  .superTitle {
+    font-family: 'Epilogue Black', 'Trebuchet MS', sans-serif;
+    font-size: 4.375rem;
+    margin-bottom: 1rem;
+  
+    @media (min-width: $breakpoint-mobile) {
+      font-size: 4.375rem;
+    }
+  }
+  
+  .superSubtitle {
+    font-family: 'Epilogue Black', 'Trebuchet MS', sans-serif;
+    font-size: 1.875rem;
+    margin-bottom: 1rem;
+  
+    @media (min-width: $breakpoint-mobile) {
+      font-size: 1.875rem;
+    }
+  }
+}

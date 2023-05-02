@@ -1,5 +1,10 @@
-// const scrollContainerY = document.querySelector('.page-archive .mainContent')
-// scrollContainerY.addEventListener('wheel', (evt) => {
-//   evt.preventDefault()
-//   scrollContainerY.scrollLeft += evt.deltaY
-// })
+import $ from 'jquery'
+
+$(window).scroll(function () {
+  const logo = $('.logo')
+  if ($(this).scrollTop() > 100) {
+    logo.addClass('logo--small')
+  } else {
+    logo.removeClass('logo--small')
+  }
+})

@@ -2,89 +2,109 @@
 *  Typography
 */
 
-@include font-face('Oracle', 'oraclegm-regularmono-webfont', '700', 'normal');
+@font-face {
+  font-display: swap;
+  font-family: 'Maison Book';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../assets/fonts/MaisonNeue-Book.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Maison Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../assets/fonts/MaisonNeue-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Tiempos';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/TiemposHeadline-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Graphik Semibold';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../assets/fonts/Graphik-Semibold.woff2') format('woff2');
+}
 
 // body {
 //   padding: var(--spacingLarge);
 // }
 
 html {
-  font-size: var(--bodyFontSize);
+  font-size: 14px;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   scroll-behavior: smooth;
 
-  @media (min-width: $breakpoint-tablet + 1) {
-    font-size: var(--bodyFontSize);
+  @media (min-width: $breakpoint-mobile) {
+    font-size: 16px;
   }
 }
 
-body,
-.paragraph
-p {
+body {
   color: var(--color-text);
-  font-family: 'Oracle', monospace;
-  font-size: var(--bodyFontSizeSmall);
-
-  @media (min-width: $breakpoint-tablet + 1) {
-    font-size: var(--bodyFontSize);
-  }
+  font-family: 'Maison Book', 'Trebuchet MS', sans-serif;
 }
 
 #{$heading-selectors} {
-  --flow-space: 2.5rem;
-  font-weight: 700;
   line-height: calc(1em + 0.5rem);
+}
+
+.superTitle {
+  font-family: 'Tiempos', 'Trebuchet MS', sans-serif;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+
+  @media (min-width: $breakpoint-mobile) {
+    font-size: 4.375rem;
+  }
+}
+
+.superSubtitle {
+  font-family: 'Tiempos', 'Trebuchet MS', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+
+  @media (min-width: $breakpoint-mobile) {
+    font-size: 1.875rem;
+  }
 }
 
 h1,
 .h1 {
-  font-size: 3rem;
-  font-weight: bold;
+  font-family: 'Maison Book', 'Trebuchet MS', sans-serif;
+  font-size: 2.25rem;
   margin-bottom: 1rem;
 
   @media (min-width: $breakpoint-mobile) {
-    font-size: 4rem;
+    font-size: 2.25rem;
   }
 }
 
 h2,
 .h2 {
-  font-size: 1.325rem;
-  font-weight: 700;
+  font-family: 'Maison Book', 'Trebuchet MS', sans-serif;
+  font-size: 1.75rem;
   margin-bottom: 1rem;
 
   @media (min-width: $breakpoint-mobile) {
-    font-size: 1.625rem;
+    font-size: 1.75rem;
   }
 }
 
 h3,
 .h3 {
-  font-size: 1.225rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-
-  @media (min-width: $breakpoint-mobile) {
-    font-size: 1.4rem;
-  }
-}
-
-h4,
-.h4 {
-  font-size: 1.625rem;
-  margin-bottom: 1rem;
-
-  @media (min-width: $breakpoint-mobile) {
-    font-size: 1.825rem;
-  }
-}
-
-h5,
-.h5 {
+  font-family: 'Maison Bold', 'Trebuchet MS', sans-serif;
   font-size: 1.25rem;
-  font-weight: 400;
   margin-bottom: 1rem;
 
   @media (min-width: $breakpoint-mobile) {
@@ -92,20 +112,28 @@ h5,
   }
 }
 
+p,
 .paragraph,
-p {
+.body {
+  font-size: 1.5rem;
+
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 1.25rem;
+  }
+
   a {
-    color: var(--black);
-  
-    &::before {
-      content: '↦';
-      margin-right: 10px;
-    }
+    color: inherit;
   }
 }
 
-.quote {
-  margin-left: 10vw;
+.bodySmall {
+  font-family: 'Maison Book', 'Trebuchet MS', sans-serif;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+
+  @media (min-width: $breakpoint-mobile) {
+    font-size: 1rem;
+  }
 }
 
 hr {
@@ -199,19 +227,30 @@ table {
 * Buttons
 */
 
+button {
+  border: inherit;
+}
+
 .button {
   @include reset-link;
+  align-items: center;
   appearance: none;
+  border-radius: 0;
   cursor: pointer;
-  display: inline-block;
+  display: flex;
   font: inherit;
+  font-size: 1rem;
   font-weight: 700;
+  justify-content: center;
   letter-spacing: 0;
-  padding: var(--spacingSmall);
+  line-height: 1rem;
+  padding: 10px var(--spacingSmall);
   text-align: center;
+  text-transform: uppercase;
 
-  @media (min-width: $breakpoint-tablet) {
-    padding: var(--spacingSmall) var(--spacingLarge);
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 1rem;
+    padding: 10px var(--spacingLarge);
   }
 
   &:disabled {
@@ -220,9 +259,117 @@ table {
     pointer-events: none;
   }
 
+  &--black {
+    background-color: transparent;
+    border: 1px solid var(--black);
+    color: var(--black);
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      background-color: var(--black);
+      color: var(--grey);
+    }
+  }
+
+  &--blue {
+    background-color: transparent;
+    border: 1px solid var(--blue);
+    color: var(--blue);
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      background-color: var(--blue);
+      color: var(--grey);
+    }
+  }
+
+  &--acqua {
+    background-color: transparent;
+    border: 1px solid var(--acqua);
+    color: var(--acqua);
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      background-color: var(--acqua);
+      color: var(--grey);
+    }
+  }
+
+  &--grey {
+    background-color: transparent;
+    border: 1px solid var(--grey);
+    color: var(--grey);
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      background-color: var(--grey);
+      color: var(--blue);
+    }
+  }
+
+  &--plusOrange {
+    align-content: center;
+    align-items: center;
+    background-color: var(--acqua);
+    border: 3px solid var(--acqua);
+    color: var(--black);
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    text-decoration: none;
+    width: 40px;
+    
+    @media (min-width: $breakpoint-tablet) {
+      padding: 0;
+    }
+
+    &::after {
+      content: '+';
+      font-size: 40px;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      color: var(--acqua);
+    }
+  }
+
+  &--plusBlack {
+    align-content: center;
+    align-items: center;
+    background-color: var(--black);
+    border: 3px solid var(--black);
+    color: var(--acqua);
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    text-decoration: none;
+    width: 40px;
+    
+    @media (min-width: $breakpoint-tablet) {
+      padding: 0;
+    }
+
+    &::after {
+      content: '+';
+      font-size: 40px;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      color: var(--black);
+    }
+  }
+
   &--full {
     background-color: var(--blue);
-    border: 1px solid var(--blue);
+    border: 3px solid var(--blue);
     color: var(--white);
     text-decoration: none;
 
@@ -235,7 +382,7 @@ table {
 
   &--ghost {
     background-color: transparent;
-    border: 1px solid var(--black);
+    border: 3px solid var(--black);
     color: var(--black);
     text-decoration: none;
 
@@ -246,24 +393,16 @@ table {
     }
   }
 
-  &--text {
+  &--link {
     background-color: transparent;
     border: 0;
     color: var(--black);
     padding: 0;
+    text-decoration: underline;
 
     &:hover,
     &:focus {
       text-decoration: none;
-    }
-  }
-
-  &--publicMind {
-    color: var(--black);
-  
-    &::before {
-      content: '↦';
-      margin-right: 10px;
     }
   }
 }
@@ -376,6 +515,7 @@ label {
 
 textarea {
   border: 1px solid var(--black);
+  margin: 0;
   max-width: 100%;
   min-height: 150px;
   resize: vertical;
@@ -431,36 +571,11 @@ flynt-component {
   }
 }
 
-.mainHeader {
-  @apply bg-white;
-}
-
-.home {
-  .mainHeader {
-    @apply bg-transparent;
-  }
-}
-
 .mainContent {
-  @apply py-lg;
-  @apply px-sm;
+  @apply mt-[65px];
+  @apply lg:mt-[104px];
+  @apply lg:min-h-[calc(100vh_-_105px)];
 }
-
-.home {
-  .mainContent {
-    @apply p-0;
-    @apply md:py-0;
-    @apply md:px-0;
-  }
-}
-
-// .page-archive {
-//   .mainContent {
-//     @apply p-0;
-//     @apply lg:py-0;
-//     @apply lg:px-0;
-//   }
-// }
 
 .componentSpacing {
   margin: var(--component-spacing) 0;

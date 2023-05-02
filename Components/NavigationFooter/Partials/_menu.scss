@@ -1,37 +1,22 @@
 .menu {
-  @include reset-list;
   align-items: center;
-  border-bottom: 1px solid var(--black);
-  border-top: 1px solid var(--black);
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacingSmall);
-  justify-content: space-between;
+  flex-flow: row wrap;
+  gap: var(--spacingLarge);
+  justify-content: flex-end;
   list-style: none;
-  margin: 0;
   padding: var(--spacingSmall) 0;
-
-  &-link {
-    @include reset-link;
-    color: currentColor;
-    font-weight: 800;
-  }
 
   &-item {
     transition: transform 0.2s ease-in-out;
 
     &:hover,
     &:focus {
-      transform: rotate(-16deg);
-    }
-
-    .menu-image {
-      height: auto;
-      width: 80px;
+      text-decoration: underline;
     }
   }
 
   .current-menu-item {
-    transform: rotate(-16deg);
+    text-decoration: underline;
   }
 }

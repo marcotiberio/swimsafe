@@ -6,12 +6,31 @@ module.exports = {
     './Components/**/*.{php,twig}'
   ],
   theme: {
+    borderWidth: {
+      DEFAULT: '1px',
+      0: '0',
+      2: '2px',
+      3: '3px'
+    },
     colors: {
       white: '#fff',
       black: '#000',
-      blue: '#1113ff',
+      blue: '#263978',
+      acqua: '#51bad9',
+      grey: '#d9d9d9',
+      azulgrey: '#e6ecee',
       current: 'currentColor',
       transparent: 'transparent'
+    },
+    fontSize: {
+      body: ['1.25rem'],
+      button: ['1rem'],
+      superTitle: ['4.375rem'],
+      superSubtitle: ['1.875rem'],
+      h1: ['2.25rem'],
+      h2: ['1.75rem'],
+      h3: ['1.25rem'],
+      menu: ['1rem']
     },
     screens: {
       sm: '640px',
@@ -20,6 +39,12 @@ module.exports = {
       xl: '1440px'
     },
     extend: {
+      aspectRatio: {
+        '16/6': '16 / 6',
+        '4/3': '4 / 3',
+        '3/4': '3 / 4',
+        '2/1': '2 / 1'
+      },
       borderWidth: {
         DEFAULT: '1px',
         0: '0',
@@ -30,9 +55,9 @@ module.exports = {
       spacing: {
         sm: '20px',
         md: '40px',
-        lg: '60px',
-        xl: '100px',
-        xxl: '200px'
+        lg: '40px',
+        xl: '80px',
+        xxl: '125px'
       }
     }
   },
