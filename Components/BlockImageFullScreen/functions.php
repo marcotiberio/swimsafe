@@ -41,7 +41,8 @@ function getACFLayout()
                     'topLeft' => sprintf('<p>TOP LEFT</p>', __('Top-Left', 'flynt')),
                     'topRight' => sprintf('<p>TOP RIGHT</p>', __('Top-Right', 'flynt')),
                     'bottomLeft' => sprintf('<p>BOTTOM LEFT</p>', __('Bottom-Left', 'flynt')),
-                    'bottomRight' => sprintf('<p>BOTTOM RIGHT</p>', __('Bottom-Right', 'flynt'))
+                    'bottomRight' => sprintf('<p>BOTTOM RIGHT</p>', __('Bottom-Right', 'flynt')),
+                    'center' => sprintf('<p>CENTER</p>', __('Center', 'flynt'))
                 ]
             ],
         ]

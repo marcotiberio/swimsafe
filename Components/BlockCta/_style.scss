@@ -1,4 +1,7 @@
 flynt-component[name='BlockCta'] {
+  // @apply bg-blue;
+  background: linear-gradient(90deg, #263978 40%, #e6ecee 125%);
+
   .content {
     > :last-child {
       margin-block-end: 0;

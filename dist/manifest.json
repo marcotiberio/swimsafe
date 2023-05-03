@@ -67,7 +67,7 @@
     "src": "Components/NavigationBurger/script.js"
   },
   "Components/ScrolltriggerComparison/script.js": {
-    "file": "assets/script-e176d15e.js",
+    "file": "assets/script-b1dcfdf4.js",
     "imports": [
       "assets/main.js"
     ],
@@ -160,12 +160,12 @@
       "Components/SliderHorizontal/script.js",
       "Components/SliderLogos/script.js"
     ],
-    "file": "assets/main-297f5188.js",
+    "file": "assets/main-14af05d2.js",
     "isEntry": true,
     "src": "assets/main.js"
   },
   "assets/main.scss": {
-    "file": "assets/main-edcc98b7.css",
+    "file": "assets/main-e482ce16.css",
     "isEntry": true,
     "src": "assets/main.scss"
   },
@@ -175,7 +175,7 @@
     "src": "assets/print.scss"
   },
   "assets/tinyMce.scss": {
-    "file": "assets/tinyMce-747da281.css",
+    "file": "assets/tinyMce-40dba565.css",
     "isEntry": true,
     "src": "assets/tinyMce.scss"
   },

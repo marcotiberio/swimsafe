@@ -1,0 +1,33 @@
+<flynt-component load:on="visible" name="BlockImageTextRepeater">
+  <div class="w-full">
+    <div class="wrapper max-w-screen-xl mx-auto p-sm sm:p-md md:p-lg">
+    {% if preContentTitle %}
+      <div class="w-full flex justify-between items-center mb-md md:mb-lg">
+        <h2>{{ preContentTitle }}</h2>
+        <a href="{{ labels.allPostsLink.url }}" class="button--link underline hover:no-underline caption font-bold text-body">{{ labels.allPosts }}</a>
+      </div>
+    {% endif %}
+    </div>
+    {% for row in rows %}
+      <div class="w-full" style="background-color: {% if row.colorBackground %}{{ row.colorBackground }}{% else %}var(--grey){% endif %};">
+        <div class="flex flex-col px-sm py-md md:px-lg md:py-xl sm:flex-row align-start md:items-center justify-start md:justify-between gap-md lg:gap-lg" {{ row.imagePosition ? 'data-image-position="' ~ row.imagePosition ~ '"' }}>
+          <div class="sm:w-1/4 h-[100px] md:h-[150px]">
+            {% if row.image %}
+              <img class="lazyload h-full"
+                src="{{ row.image.src | resize(32) }}"
+                data-srcset="{{function('wp_get_attachment_image_srcset', row.image.id)}}"
+                data-sizes="auto"
+                alt="{{ row.image.alt|e }}">
+            {% endif %}
+            {% if row.image.caption %}
+              <figcaption>{{ row.image.caption|e }}</figcaption>
+            {% endif %}
+          </div>
+          <div class="sm:w-3/4">
+            {{ row.contentHtml|e('wp_kses_post') }}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</flynt-component>

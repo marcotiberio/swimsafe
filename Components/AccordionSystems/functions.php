@@ -142,14 +142,15 @@ function getACFLayout()
                         'endpoint' => 0
                     ],
                     [
-                        'label' => __('Video: Vimeo', 'flynt'),
-                        'name' => 'vimeoCode',
-                        'type' => 'text',
-                        'required' => 0,
-                        'instructions' => __('https://vimeo.com/XXXXXXXXX', 'flynt'),
+                        'label' => __('Video', 'flynt'),
+                        'instructions' => __('Video-Format: mp4.', 'flynt'),
+                        'name' => 'video',
+                        'type' => 'file',
+                        'return_format' => 'url',
+                        'mime_types' => 'mp4',
                         'wrapper' => [
-                            'width' => 50
-                        ],
+                            'width' => 50,
+                        ]
                     ],
                 ],
             ],

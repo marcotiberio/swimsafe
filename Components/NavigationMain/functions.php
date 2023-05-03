@@ -24,6 +24,25 @@ add_filter('Flynt/addComponentData?name=NavigationMain', function ($data) {
 
 Options::addTranslatable('NavigationMain', [
     [
+        'label' => __('Background Image', 'flynt'),
+        'name' => 'backgroundImageTab',
+        'type' => 'tab',
+        'placement' => 'top',
+        'endpoint' => 0
+    ],
+    [
+        'label' => __('Background Image', 'flynt'),
+        'name' => 'backgroundImage',
+        'instructions' => __('Image-Format: JPG, PNG, SVG.', 'flynt'),
+        'type' => 'image',
+        'preview_size' => 'medium',
+        'required' => 0,
+        'mime_types' => 'jpg,jpeg,png,svg',
+        'wrapper' =>  [
+            'width' => 100,
+        ],
+    ],
+    [
         'label' => __('Call to Action', 'flynt'),
         'name' => 'ctaTab',
         'type' => 'tab',

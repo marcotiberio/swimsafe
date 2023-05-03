@@ -1,0 +1,15 @@
+{% extends 'templates/_document.twig' %}
+
+{% block content %}
+  <div class="wrapper-curtain">
+    <div class="curtain"></div>
+    <div class="intro-text">
+      <h1 class="superTitle text-white text-center max-w-xl">
+        Your pool covered by magic touch
+      </h1>
+    </div>
+  </div>
+  {% for component in post.meta('pageComponents') %}
+    {{ renderComponent(component) }}
+  {% endfor %}
+{% endblock %}

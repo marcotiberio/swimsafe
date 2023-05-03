@@ -1,8 +1,12 @@
 .logo {
-  @apply top-md;
+  @apply top-0;
   @apply right-0;
+  @apply translate-y-sm;
+  @apply -translate-x-sm;
   @apply md:top-sm;
   @apply md:right-sm;
+  @apply md:translate-y-0;
+  @apply md:-translate-x-0;
   transition: all 0.2s ease-in-out;
 
   &--small {
@@ -21,6 +25,39 @@
     @apply lg:w-[200px];
     transition: all 0.2s ease-in-out;
   }
+}
+
+.home {
+  .wrapper-curtain {
+    background-image: url('http://swim-safe.local/wp-content/uploads/2023/05/backgroundhome.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    transition: transform 3s ease-in-out;
+    // transition: transform 0.5s cubic-bezier(0.42, 0, 0.58, 1);
+    width: 100%;
+    z-index: 9999;
+
+    &.translate-up {
+      transform: translateY(-100%);
+    }
+
+    .intro-text {
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10000;
+    }
+  }
+
+  
+
+  
 }
 
 .single {
